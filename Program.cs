@@ -16,9 +16,15 @@ class Program
             Console.WriteLine("5. Return Vehicle");
             Console.WriteLine("6. Show Available Vehicles");
             Console.WriteLine("7. Exit");
+            Console.WriteLine("=============================");
 
             Console.Write("Choose an option: ");
-            int choice = int.Parse(Console.ReadLine());
+            int choice;
+            if (!int.TryParse(Console.ReadLine(), out choice))
+            {
+                Console.WriteLine("Invalid input. Try again.");
+                continue;
+            }
 
             switch (choice)
             {
@@ -80,6 +86,7 @@ class Program
                     break;
 
                 case 4:
+                    system.DisplayAvailableVehicles();
                     Console.Write("Rental ID: ");
                     int rentalId = int.Parse(Console.ReadLine());
 

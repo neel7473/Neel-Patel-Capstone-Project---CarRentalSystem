@@ -25,13 +25,22 @@ public class RentalSystem
     public void DisplayAvailableVehicles()
     {
         Console.WriteLine("\nAvailable Vehicles:");
+
+        bool found = false;
+
         foreach (var vehicle in vehicles)
         {
             if (vehicle.IsAvailable)
             {
                 vehicle.DisplayInfo();
                 Console.WriteLine("-------------------");
+                found = true;
             }
+        }
+
+        if (!found)
+        {
+            Console.WriteLine("No vehicles available.");
         }
     }
 
